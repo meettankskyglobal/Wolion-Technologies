@@ -6,6 +6,7 @@ import react from '@vitejs/plugin-react';
 const root = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig({
+  base: '/Wolion-Technologies/',
   plugins: [react()],
   build: {
     rollupOptions: {

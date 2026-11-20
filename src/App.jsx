@@ -50,12 +50,13 @@ function LogoLink({ href, label }) {
 }
 
 function Header({ home = false, showNavigation = true }) {
-  const sectionHref = section => home ? `#${section}` : `index.html#${section}`;
+  const homeHref = `${import.meta.env.BASE_URL}index.html`;
+  const sectionHref = section => home ? `#${section}` : `${homeHref}#${section}`;
 
   return (
     <header className="site-header" id="top">
       <div className="container nav-wrap">
-        <LogoLink href={home ? '#top' : 'index.html#top'} label="Wolion Technologies home" />
+        <LogoLink href={home ? '#top' : `${homeHref}#top`} label="Wolion Technologies home" />
         {showNavigation && (
           <>
             <button className="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
@@ -75,7 +76,8 @@ function Header({ home = false, showNavigation = true }) {
 }
 
 function Footer({ home = false, minimal = false }) {
-  const sectionHref = section => home ? `#${section}` : `index.html#${section}`;
+  const homeHref = `${import.meta.env.BASE_URL}index.html`;
+  const sectionHref = section => home ? `#${section}` : `${homeHref}#${section}`;
 
   if (minimal) {
     return (
@@ -92,7 +94,7 @@ function Footer({ home = false, minimal = false }) {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <LogoLink href={home ? '#top' : 'index.html#top'} label="Wolion Technologies home" />
+          <LogoLink href={home ? '#top' : `${homeHref}#top`} label="Wolion Technologies home" />
           <p>Workforce and technology solutions shaped around business needs.</p>
         </div>
         <div>
@@ -105,13 +107,13 @@ function Footer({ home = false, minimal = false }) {
         </div>
         <div>
           <h3>Information</h3>
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href={`${import.meta.env.BASE_URL}privacy.html`}>Privacy Policy</a>
+          <a href={`${import.meta.env.BASE_URL}terms.html`}>Terms &amp; Conditions</a>
         </div>
       </div>
       <div className="container footer-bottom">
         <p>© <span id="year"></span> Wolion Technologies. All rights reserved.</p>
-        <a href={home ? '#top' : 'index.html#top'} className="back-top" aria-label="Back to top">↑</a>
+        <a href={home ? '#top' : `${homeHref}#top`} className="back-top" aria-label="Back to top">↑</a>
       </div>
     </footer>
   );
@@ -290,7 +292,7 @@ function PrivacyPage() {
       <main id="main">
         <section className="page-hero">
           <div className="container">
-            <div className="breadcrumbs"><a href="index.html">Home</a> / Privacy Policy</div>
+            <div className="breadcrumbs"><a href={import.meta.env.BASE_URL}>Home</a> / Privacy Policy</div>
             <h1>Privacy <em>Policy</em></h1>
             <p>This policy describes the general handling of information submitted through this website. It should be reviewed and completed by the business before production use.</p>
           </div>
@@ -324,7 +326,7 @@ function TermsPage() {
       <main id="main">
         <section className="page-hero">
           <div className="container">
-            <div className="breadcrumbs"><a href="index.html">Home</a> / Terms &amp; Conditions</div>
+            <div className="breadcrumbs"><a href={import.meta.env.BASE_URL}>Home</a> / Terms &amp; Conditions</div>
             <h1>Terms &amp; <em>Conditions</em></h1>
             <p>These terms govern use of this website. The business should have legal counsel review the final production terms.</p>
           </div>
@@ -360,7 +362,7 @@ function NotFoundPage() {
           <h1>404</h1>
           <h2>This page has moved.</h2>
           <p>The page you requested could not be found.</p>
-          <a className="button primary" href="index.html">Return Home <span>→</span></a>
+          <a className="button primary" href={`${import.meta.env.BASE_URL}index.html`}>Return Home <span>→</span></a>
         </div>
       </main>
     </>
@@ -369,13 +371,16 @@ function NotFoundPage() {
 
 export default function App() {
   const pathname = window.location.pathname.toLowerCase();
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '').toLowerCase();
+  const isHome = pathname === '/' || pathname === basePath || pathname === `${basePath}/`
+    || pathname === `${basePath}/index.html` || pathname.endsWith('/index.html');
   const page = pathname.endsWith('/privacy.html')
     ? 'privacy'
     : pathname.endsWith('/terms.html')
       ? 'terms'
       : pathname.endsWith('/404.html')
         ? 'not-found'
-        : pathname === '/' || pathname.endsWith('/index.html')
+        : isHome
           ? 'home'
           : 'not-found';
 
@@ -394,7 +399,7 @@ export default function App() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Wolion Technologies',
-    url: '/',
+    url: new URL(import.meta.env.BASE_URL, window.location.origin).href,
     logo: lionLogo,
     description: 'Business solutions across workforce services, recruitment, healthcare revenue-cycle support, software development, and career support.'
   };

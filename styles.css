@@ -121,7 +121,7 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
   background:
     linear-gradient(90deg, rgba(6, 23, 45, .82) 0%, rgba(6, 23, 45, .62) 48%, rgba(6, 23, 45, .42) 100%),
     linear-gradient(0deg, rgba(6, 23, 45, .34), rgba(6, 23, 45, .04) 66%),
-    url("/images/wolion-hero-city.png") center 53% / cover no-repeat;
+    url("./assets/wolion-hero-city.png") center 53% / cover no-repeat;
   color: var(--white);
 }
 .hero::before {

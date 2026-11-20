@@ -6,6 +6,7 @@ React-powered, responsive website for Wolion Technologies. The homepage keeps co
 
 - `assets/logo/lion_logo.svg` — supplied lion logo used in headers and the footer without alteration
 - `assets/logo/wolion-favicon.svg` — favicon with the supplied lion logo on a navy background
+- `assets/wolion-hero-city.png` — supplied city image used in the homepage hero background
 - The header and footer use the deep navy brand background so the original logo remains legible.
 - The homepage's blue/mint light trails use lightweight Canvas 2D and do not require WebGL.
 
@@ -16,7 +17,7 @@ The site uses Manrope for headings and Inter for body text. Both are loaded with
 Install dependencies and run the Vite development server:
 
 ```powershell
-npm install
+npm ci
 npm run dev
 ```
 
@@ -30,6 +31,22 @@ npm run preview
 ```
 
 The multi-page build is written to `dist/`; the `public/` directory contains static SEO files.
+
+## GitHub Pages deployment
+
+The `main` branch deploys automatically through `.github/workflows/deploy.yml`; the workflow can also be started manually with `workflow_dispatch`. In the repository settings, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**.
+
+The expected site URL is <https://meettankskyglobal.github.io/Wolion-Technologies/>.
+
+To publish changes:
+
+```powershell
+git add .
+git commit -m "Configure GitHub Pages deployment"
+git push origin main
+```
+
+GitHub Actions must complete successfully before the new site is live.
 
 ## Form integration
 
