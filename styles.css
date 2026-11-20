@@ -382,13 +382,16 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
 
 /* Footer and secondary pages */
 .site-footer { padding: 58px 0 20px; background: var(--navy); color: rgba(229, 237, 241, .75); }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.25fr; gap: 40px; }
 .footer-brand p { max-width: 290px; margin: 14px 0 0; color: rgba(229, 237, 241, .62); font-size: 12px; }
 .footer-grid h3 { margin: 4px 0 15px; color: var(--white); font-size: 12px; letter-spacing: .04em; }
 .footer-grid > div > a:not(.brand) { display: block; width: fit-content; margin: 8px 0; color: rgba(229, 237, 241, .66); font-size: 11px; transition: color .18s ease; }
 .footer-grid > div > a:not(.brand):hover { color: var(--cyan); }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 42px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, .1); }
 .footer-bottom p { margin: 0; color: rgba(229, 237, 241, .6); font-size: 10px; }
+.footer-contact { display: flex; align-items: center; gap: 16px; }
+.footer-contact a { color: rgba(229, 237, 241, .66); font-size: 10px; transition: color .18s ease; }
+.footer-contact a:hover { color: var(--cyan); }
 .back-top { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid rgba(150, 194, 219, .24); border-radius: 50%; color: var(--white); transition: border-color .2s ease, color .2s ease; }
 .back-top:hover { border-color: var(--cyan); color: var(--cyan); }
 .page-hero { padding: 142px 0 64px; background: linear-gradient(135deg, var(--light), var(--white) 74%); border-bottom: 1px solid rgba(150, 194, 219, .5); }
@@ -508,7 +511,8 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
   .field.full { grid-column: auto; }
   .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 18px; }
   .footer-brand { grid-column: 1 / -1; }
-  .footer-bottom { margin-top: 30px; }
+  .footer-bottom { flex-wrap: wrap; margin-top: 30px; }
+  .footer-contact { order: 3; width: 100%; flex-direction: column; align-items: flex-start; gap: 6px; }
   .page-hero { padding: 112px 0 48px; }
   .page-hero h1 { font-size: clamp(2.2rem, 10vw, 3rem); }
   .page-hero p { font-size: 14px; }

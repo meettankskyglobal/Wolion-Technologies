@@ -84,6 +84,10 @@ function Footer({ home = false, minimal = false }) {
       <footer className="site-footer">
         <div className="container footer-bottom">
           <p>© <span id="year"></span> Wolion Technologies.</p>
+          <div className="footer-contact">
+            <a href="mailto:Info@woliontechnologies.com">Info@woliontechnologies.com</a>
+            <a href="https://www.linkedin.com/company/woliontechnologies/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
           <a href="#top" className="back-top" aria-label="Back to top">↑</a>
         </div>
       </footer>
@@ -109,6 +113,11 @@ function Footer({ home = false, minimal = false }) {
           <h3>Information</h3>
           <a href={`${import.meta.env.BASE_URL}privacy.html`}>Privacy Policy</a>
           <a href={`${import.meta.env.BASE_URL}terms.html`}>Terms &amp; Conditions</a>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <a href="mailto:Info@woliontechnologies.com">Info@woliontechnologies.com</a>
+          <a href="https://www.linkedin.com/company/woliontechnologies/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
       <div className="container footer-bottom">
