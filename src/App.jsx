@@ -278,6 +278,16 @@ function HomePage() {
                     </select>
                   </div>
                   <div className="field full"><label htmlFor="contact-message">Message *</label><textarea id="contact-message" name="message" required maxLength={3000} placeholder="How can we help?" /></div>
+                  <div className="consent-group field full">
+                    <label className="consent-option" htmlFor="privacy-consent">
+                      <input id="privacy-consent" name="privacy_consent" type="checkbox" value="accepted" required />
+                      <span>I have read and agree to the <a href={`${import.meta.env.BASE_URL}privacy.html`} target="_blank" rel="noopener noreferrer">Privacy Policy</a>. *</span>
+                    </label>
+                    <label className="consent-option" htmlFor="terms-consent">
+                      <input id="terms-consent" name="terms_consent" type="checkbox" value="accepted" required />
+                      <span>I have read and agree to the <a href={`${import.meta.env.BASE_URL}terms.html`} target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>. *</span>
+                    </label>
+                  </div>
                   <div className="field full">
                     <button className="button primary" type="submit" data-label="Send inquiry">Send inquiry <span>→</span></button>
                     <p className="form-status" data-form-status="" role="status" aria-live="polite"></p>

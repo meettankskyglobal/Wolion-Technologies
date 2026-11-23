@@ -374,6 +374,36 @@ h1 em, h2 em { color: var(--cyan); font-style: normal; }
 }
 .field textarea { min-height: 116px; resize: vertical; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(16, 110, 190, .12); }
+.consent-group { gap: 9px; padding: 2px 0 1px; }
+.consent-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 0;
+  color: var(--dark-grey);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.55;
+  cursor: pointer;
+}
+.consent-option input {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  min-height: 16px;
+  margin: 2px 0 0;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+.consent-option input:focus {
+  box-shadow: 0 0 0 3px rgba(16, 110, 190, .12);
+}
+.consent-option a {
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .field .button { justify-self: start; }
 .form-status { min-height: 22px; margin: 10px 0 0; font-size: 12px; }
 .form-status.error { color: #a62a2a; }
